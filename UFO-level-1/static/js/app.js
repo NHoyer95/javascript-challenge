@@ -13,9 +13,6 @@ tableData.forEach(ufoSighting => {
     // Loop through UFO sightings
     Object.entries(ufoSighting).forEach(function([key, value]) {
 
-        // check console to make sure entries are being logged
-        console.log(key, value);
-
         // add to the table in a new cell
         var newCell = newRow.append("td");
         newCell.text(value);
@@ -56,9 +53,6 @@ function runEnter(){
     
         // loop through each entry 
         Object.entries(ufoSighting).forEach(function([key, value]) {
-
-            // testing if we are logging the correct values for each entry
-            console.log(key, value);
     
             // add these to the table, each with a new cell
             var newCell = newRow.append("td");
