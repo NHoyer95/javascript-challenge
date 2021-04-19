@@ -24,8 +24,21 @@ tableData.forEach(ufoSighting => {
 
 // create event handlers for date inputs
 var button = d3.select("#filter-btn");
-var form = d3.select("formz");
+var form = d3.select("#formz");
 
 button.on("click", runEnter);
 form.on("submit", runEnter);
 
+// create function to filter through data that matches the search criteria
+function runEnter(){
+
+    // prevent the page from refreshing
+    d3.event.preventDefault();
+
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#datetime");
+
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
+};
