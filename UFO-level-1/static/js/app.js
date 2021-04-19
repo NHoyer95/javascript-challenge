@@ -11,7 +11,7 @@ tableData.forEach(ufoSighting => {
     var newRow = tbody.append("tr");
 
     // Loop through UFO sightings
-    Object.defineProperties(ufoSighting).forEach(function([key, value]) {
+    Object.entries(ufoSighting).forEach(function([key, value]) {
 
         // check console to make sure entries are being logged
         console.log(key, value);
@@ -24,7 +24,7 @@ tableData.forEach(ufoSighting => {
 
 // create event handlers for date inputs
 var button = d3.select("#filter-btn");
-var form = d3.select("#formz");
+var form = d3.selectAll("#formz");
 
 button.on("click", runEnter);
 form.on("submit", runEnter);
@@ -42,10 +42,29 @@ function runEnter(){
     var inputValue = inputElement.property("value");
     console.log(inputValue);
 
-    // filter through the data based on the date provided by user
+    // Filter through the data based on the date provided by user
     var filteredData = tableData.filter(date => date.datetime === inputValue);
     console.log(filteredData);
     
-    // clear the table of previous dasta 
+    // Clear the table of previous data 
     document.getElementById("tbodyid").innerHTML = "";
+
+    // display only the data that matches
+    filteredData.forEach(ufoSighting => {
+        // add a new row for each entry
+        var newRow = tbody.append("tr");
+    
+        // loop through each entry 
+        Object.entries(ufoSighting).forEach(function([key, value]) {
+
+            // testing if we are logging the correct values for each entry
+            console.log(key, value);
+    
+            // add these to the table, each with a new cell
+            var newCell = newRow.append("td");
+            newCell.text(value);
+        })
+    
+    })    
+
 };
