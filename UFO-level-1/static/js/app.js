@@ -41,4 +41,11 @@ function runEnter(){
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
     console.log(inputValue);
+
+    // filter through the data based on the date provided by user
+    var filteredData = tableData.filter(date => date.datetime === inputValue);
+    console.log(filteredData);
+    
+    // clear the table of previous dasta 
+    document.getElementById("tbodyid").innerHTML = "";
 };
