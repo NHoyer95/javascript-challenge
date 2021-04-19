@@ -22,3 +22,10 @@ tableData.forEach(ufoSighting => {
     })
 })
 
+// create event handlers for date inputs
+var button = d3.select("#filter-btn");
+var form = d3.select("formz");
+
+button.on("click", runEnter);
+form.on("submit", runEnter);
+
