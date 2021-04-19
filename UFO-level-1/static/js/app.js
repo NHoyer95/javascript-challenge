@@ -21,3 +21,4 @@ tableData.forEach(ufoSighting => {
         newCell.text(value);
     })
 })
+
